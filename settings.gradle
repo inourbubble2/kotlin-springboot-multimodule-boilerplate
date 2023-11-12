@@ -1,1 +1,8 @@
 rootProject.name = 'kotlin-springboot-multimodule-bolierplate'
+
+include 'boilerplate-domain'
+include 'boilerplate-application'
+include 'boilerplate-infrastructure'
+include 'boilerplate-batch'
+include 'boilerplate-common'
+
