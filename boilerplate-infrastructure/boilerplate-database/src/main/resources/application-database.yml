@@ -1,0 +1,19 @@
+spring:
+  jpa:
+    open-in-view: off
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    url: jdbc:h2:mem:boilerplate
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    show-sql: true
+  h2:
+    console.enabled: true

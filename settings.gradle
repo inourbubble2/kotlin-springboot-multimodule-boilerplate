@@ -5,4 +5,4 @@ include 'boilerplate-application'
 include 'boilerplate-infrastructure'
 include 'boilerplate-batch'
 include 'boilerplate-common'
-
+include 'boilerplate-infrastructure:boilerplate-database'
