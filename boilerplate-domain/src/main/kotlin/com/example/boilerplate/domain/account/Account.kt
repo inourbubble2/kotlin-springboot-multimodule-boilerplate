@@ -1,5 +1,6 @@
 package com.example.boilerplate.domain.account
 
+import com.example.boilerplate.domain.base.BaseEntity
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.EnumType
@@ -23,4 +24,4 @@ class Account(
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val accountId: Long = 0L,
-)
+) : BaseEntity()
