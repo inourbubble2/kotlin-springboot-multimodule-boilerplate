@@ -1,32 +1,35 @@
 package com.example.boilerplate.config
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition
+import io.swagger.v3.oas.annotations.info.Info
+import io.swagger.v3.oas.models.Components
+import io.swagger.v3.oas.models.OpenAPI
+import io.swagger.v3.oas.models.security.SecurityRequirement
+import io.swagger.v3.oas.models.security.SecurityScheme
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import springfox.documentation.builders.ApiInfoBuilder
-import springfox.documentation.builders.PathSelectors
-import springfox.documentation.builders.RequestHandlerSelectors
-import springfox.documentation.service.ApiInfo
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spring.web.plugins.Docket
 
+@OpenAPIDefinition(info = Info(title = "boilerplate-api"))
 @Configuration
 class SwaggerConfig {
     @Bean
-    fun api(): Docket {
-        return Docket(DocumentationType.OAS_30)
-            .useDefaultResponseMessages(false)
-            .select()
-            .apis(RequestHandlerSelectors.basePackage("com.example.boilerplate.web"))
-            .paths(PathSelectors.any())
-            .build()
-            .apiInfo(apiInfo())
-    }
+    fun openAPI(): OpenAPI {
+        val securityScheme =
+            SecurityScheme()
+                .type(SecurityScheme.Type.HTTP)
+                .scheme("bearer")
+                .bearerFormat("JWT")
+                .`in`(SecurityScheme.In.HEADER)
+                .name("Authorization")
 
-    private fun apiInfo(): ApiInfo {
-        return ApiInfoBuilder()
-            .title("Boilerplate Swagger")
-            .description("swagger for boilerplate")
-            .version("1.0")
-            .build()
+        val securityRequirement =
+            SecurityRequirement()
+                .addList("bearerAuth")
+
+        return OpenAPI()
+            .components(
+                Components()
+                    .addSecuritySchemes("bearerAuth", securityScheme),
+            ).security(mutableListOf<SecurityRequirement?>(securityRequirement))
     }
 }
