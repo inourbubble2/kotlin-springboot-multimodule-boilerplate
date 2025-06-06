@@ -1,7 +1,7 @@
-package com.example.boilerplate.domain.account
+package com.example.boilerplate.database.model
 
 enum class AccountStatus(
-    val desc: String
+    val desc: String,
 ) {
     ACTIVE("활성"),
     DORMANT("휴면"),

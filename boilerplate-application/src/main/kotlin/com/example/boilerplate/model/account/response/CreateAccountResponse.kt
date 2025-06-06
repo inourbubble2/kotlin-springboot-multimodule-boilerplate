@@ -1,12 +1,12 @@
 package com.example.boilerplate.model.account.response
 
-import com.example.boilerplate.domain.account.Account
-import com.example.boilerplate.domain.account.AccountStatus
+import com.example.boilerplate.database.entity.Account
+import com.example.boilerplate.database.model.AccountStatus
 
 data class CreateAccountResponse(
     val name: String,
     val email: String,
-    val status: AccountStatus
+    val status: AccountStatus,
 ) {
     companion object {
         fun of(account: Account) =
