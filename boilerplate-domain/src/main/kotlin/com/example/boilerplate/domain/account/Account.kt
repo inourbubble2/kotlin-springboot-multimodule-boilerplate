@@ -1,7 +1,6 @@
 package com.example.boilerplate.domain.account
 
 import com.example.boilerplate.domain.base.BaseEntity
-import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.EnumType
 import jakarta.persistence.Enumerated
@@ -13,15 +12,11 @@ import jakarta.persistence.Table
 @Entity
 @Table(name = "account")
 class Account(
-    @Column(name = "name")
     val name: String,
-    @Column(name = "email")
     val email: String,
-    @Column(name = "status")
     @Enumerated(EnumType.STRING)
     val status: AccountStatus,
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val accountId: Long = 0L,
+    val id: Long = 0L,
 ) : BaseEntity()
