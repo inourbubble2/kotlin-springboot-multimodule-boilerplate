@@ -4,3 +4,13 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+
+jwt:
+  access-token-secret-key: 6LhPHjdx,dQRP^BuW^{/(t[sl~!=X=~)f#ft"LE|umY>]tj9|*=iCEa!b.I,6m6
+  refresh-token-secret-key: eA0zM1Q-j1^K?Zz:H`0E0#4:-eK9[n*%T(9s;:6*l_Yh=SS0pJ3[[(c@zD)}006
