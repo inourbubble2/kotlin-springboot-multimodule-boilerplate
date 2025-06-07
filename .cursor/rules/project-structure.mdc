@@ -1,0 +1,41 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Project Structure Guide
+
+This is a Kotlin Spring Boot multimodule project with clean architecture principles. Here's how the modules are organized:
+
+## Main Application Entry Point
+The main Spring Boot application is located in [BolierplateApplication.kt](mdc:boilerplate-application/src/main/kotlin/com/example/boilerplate/BolierplateApplication.kt).
+
+## Module Structure
+
+### 🏗️ Core Modules
+- **boilerplate-application/**: Main application layer containing controllers, services, and Spring Boot configuration
+  - Entry point: [BolierplateApplication.kt](mdc:boilerplate-application/src/main/kotlin/com/example/boilerplate/BolierplateApplication.kt)
+  - Build config: [build.gradle](mdc:boilerplate-application/build.gradle)
+
+- **boilerplate-domain/**: Domain layer containing business logic, entities, and domain services
+  - Build config: [build.gradle](mdc:boilerplate-domain/build.gradle)
+
+- **boilerplate-common/**: Shared utilities, common configurations, and cross-cutting concerns
+  - Build config: [build.gradle](mdc:boilerplate-common/build.gradle)
+
+### 🔧 Supporting Modules
+- **boilerplate-external/**: External integrations, third-party service clients, and adapters
+  - Build config: [build.gradle](mdc:boilerplate-external/build.gradle)
+
+- **boilerplate-batch/**: Batch processing jobs and scheduled tasks
+  - Build config: [build.gradle](mdc:boilerplate-batch/build.gradle)
+
+## Build Configuration
+- Root build file: [build.gradle](mdc:build.gradle)
+- Module configuration: [settings.gradle](mdc:settings.gradle)
+- Gradle wrapper: [gradlew](mdc:gradlew) / [gradlew.bat](mdc:gradlew.bat)
+
+## Package Structure
+Base package: `com.example.boilerplate`
+- Application layer: `com.example.boilerplate.presentation`
+- Service layer: `com.example.boilerplate.service`

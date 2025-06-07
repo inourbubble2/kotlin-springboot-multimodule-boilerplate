@@ -1,0 +1,52 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Quick Reference Guide
+
+Quick reference for common tasks and important file locations in this Kotlin Spring Boot multimodule project.
+
+## 🚀 Quick Start
+1. **Run Application**: `./gradlew :boilerplate-application:bootRun`
+2. **Build All**: `./gradlew build`
+3. **Run Tests**: `./gradlew test`
+4. **Format Code**: `./gradlew ktlintFormat`
+
+## 📁 Key Files & Locations
+
+### Main Entry Points
+- **Application Main**: [BolierplateApplication.kt](mdc:boilerplate-application/src/main/kotlin/com/example/boilerplate/BolierplateApplication.kt)
+- **Build Config**: [build.gradle](mdc:build.gradle)
+- **Module Config**: [settings.gradle](mdc:settings.gradle)
+
+### Module Structure
+```
+boilerplate-application/    # 🎯 Main app + REST APIs
+boilerplate-domain/         # 💼 Business logic
+boilerplate-common/         # 🔧 Shared utilities  
+boilerplate-external/       # 🌐 External integrations
+boilerplate-batch/          # ⏰ Batch jobs
+```
+
+### Configuration Files
+- **Git**: [.gitignore](mdc:.gitignore)
+- **Editor**: [.editorconfig](mdc:.editorconfig)
+- **Gradle**: [gradlew](mdc:gradlew) / [gradlew.bat](mdc:gradlew.bat)
+
+## 🔍 Common Patterns
+- **Package Base**: `com.example.boilerplate`
+- **Test Directory**: `src/test/kotlin` in each module
+- **Main Source**: `src/main/kotlin` in each module
+- **Resources**: `src/main/resources` in each module
+
+## 🧪 Testing
+- **Framework**: Kotest + MockK
+- **Run Module Tests**: `./gradlew :module-name:test`
+- **Run Specific Test**: `./gradlew :module-name:test --tests ClassName`
+
+## 📦 Dependencies
+- **Kotlin**: 1.9.22
+- **Spring Boot**: 3.4.4  
+- **Java**: 21
+- **Build Tool**: Gradle with Kotlin DSL

@@ -1,0 +1,41 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Kotlin Spring Boot Conventions
+
+This project follows specific Kotlin and Spring Boot conventions. Here are the key standards:
+
+## Technology Stack
+- **Kotlin**: 1.9.22
+- **Spring Boot**: 3.4.4
+- **Java**: 21
+- **Testing**: Kotest + MockK
+
+## Code Style & Quality
+- **Linting**: ktlint (version 11.6.1) - enforced via [build.gradle](mdc:build.gradle)
+- **Editor Config**: [.editorconfig](mdc:.editorconfig)
+
+## Dependency Management
+All common dependencies are configured in the root [build.gradle](mdc:build.gradle):
+- Jackson Kotlin module for JSON processing
+- Kotlin reflection
+- Spring Boot configuration processor
+- Testing: Spring Boot Test, MockK, Kotest
+
+## Module Dependencies
+Each module has its own [build.gradle](mdc:boilerplate-application/build.gradle) that extends the root configuration.
+
+## Testing Strategy
+- **Unit Tests**: Kotest for assertions and property-based testing
+- **Mocking**: MockK for Kotlin-friendly mocking
+- **Integration Tests**: Spring Boot Test
+
+## Gradle Tasks
+Common tasks available:
+- `./gradlew build` - Build all modules
+- `./gradlew test` - Run all tests
+- `./gradlew ktlintCheck` - Check code style
+- `./gradlew ktlintFormat` - Format code
+- `./gradlew bootRun` - Run the application

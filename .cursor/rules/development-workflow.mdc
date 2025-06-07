@@ -1,0 +1,47 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Development Workflow Guide
+
+This guide outlines the development workflow and best practices for this Kotlin Spring Boot multimodule project.
+
+## Module Development Order
+When developing new features, follow this dependency order:
+
+1. **boilerplate-common/** - Add shared utilities and common types
+2. **boilerplate-domain/** - Define business logic and domain entities
+3. **boilerplate-external/** - Implement external service integrations
+4. **boilerplate-application/** - Create controllers and application services
+5. **boilerplate-batch/** - Add batch processing if needed
+
+## File Organization
+- **Main Application**: Start with [BolierplateApplication.kt](mdc:boilerplate-application/src/main/kotlin/com/example/boilerplate/BolierplateApplication.kt)
+- **Build Files**: Module-specific configurations in each module's [build.gradle](mdc:boilerplate-application/build.gradle)
+- **Root Config**: Global settings in [build.gradle](mdc:build.gradle) and [settings.gradle](mdc:settings.gradle)
+
+## Code Quality Checklist
+Before committing:
+1. Run `./gradlew ktlintCheck` to verify code style
+2. Run `./gradlew test` to ensure all tests pass
+3. Run `./gradlew build` to verify clean build
+4. Follow the [.editorconfig](mdc:.editorconfig) settings
+
+## Testing Guidelines
+- Place unit tests in `src/test/kotlin` for each module
+- Use Kotest for test assertions
+- Use MockK for mocking Kotlin classes
+- Integration tests should use Spring Boot Test annotations
+
+## Module Boundaries
+- **Domain**: Pure business logic, no external dependencies
+- **Application**: Orchestration and REST endpoints
+- **External**: Third-party integrations and adapters
+- **Common**: Shared utilities used across modules
+- **Batch**: Scheduled tasks and batch processing
+
+## Git Workflow
+- Follow conventional commits
+- Respect the [.gitignore](mdc:.gitignore) patterns
+- Keep module changes focused and atomic
